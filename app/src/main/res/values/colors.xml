@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="title">#7b91ff</color>
+    <color name="my_info_background">#e6e6e6</color>
+    <color name="text_black">#000000</color>
+    <color name="exit_button">#ff6767</color>
+    <color name="send_button_on_focus">#d6cbcb</color>
+    <color name="lesson_item_background">#faf7f7</color>
+    <color name="logon_button_ripple">#2d4ce3</color>
+    <color name="white">#fff</color>
+    <color name="no_lesson_color">#e2e1e1</color>
+    <color name="date_run_text_color">#282828</color>
+    <color name="run_date_button_background_color">#5EE5A7</color>
+    <color name="release_run_background">#faf7f7</color>
+    <color name="delete_button_red">#f06767</color>
+</resources>

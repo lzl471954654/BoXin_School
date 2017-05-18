@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="#fff"
+    >
+    <ImageView
+        android:id="@+id/run_history__item_image"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        style="@style/user_image_circle_radius"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="一起跑"
+        android:textColor="@color/date_run_text_color"
+        android:layout_toRightOf="@id/run_history__item_image"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        android:id="@+id/run_history_item_title"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="路程 5km"
+        android:layout_alignStart="@id/run_history_item_title"
+        android:layout_below="@id/run_history_item_title"
+        android:id="@+id/run_history_item_km"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用时 57min"
+        android:layout_marginEnd="140dp"
+        android:layout_alignBottom="@id/run_history_item_km"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="55dp"
+        android:id="@+id/run_history_item_use_min"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人数 23人"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/run_history_item_km"
+        android:layout_marginEnd="35dp"
+        android:id="@+id/run_history_item_people_count"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="32日 午夜"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/run_history_item_title"
+        android:layout_alignStart="@id/run_history_item_people_count"
+        android:id="@+id/run_history_item_time"
+        android:textColor="#999"
+        />
+
+
+</RelativeLayout>

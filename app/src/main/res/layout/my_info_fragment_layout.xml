@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:id="@+id/my_info_fragment_user_layout"
+        android:layout_alignParentTop="true"
+        android:background="#fff"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@color/send_button_on_focus"
+                android:id="@+id/my_info_fragment_user_image"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="欧阳溜溜"
+                android:textSize="20sp"
+                android:textColor="@color/text_black"
+                android:layout_below="@id/my_info_fragment_user_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:id="@+id/my_info_fragment_user_name"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/girl"
+                android:layout_toRightOf="@id/my_info_fragment_user_name"
+                android:layout_alignBottom="@id/my_info_fragment_user_name"
+                android:layout_marginStart="5dp"
+                android:id="@+id/my_info_fragment_user_sex"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="西安邮电大学\t软件工程学院"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/my_info_fragment_user_name"
+                android:layout_marginTop="10dp"
+                android:id="@+id/my_info_fragment_user_school"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        >
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:background="@color/send_button_on_focus"
+            android:id="@+id/my_info_fragment_user_image"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欧阳溜溜"
+            android:textSize="20sp"
+            android:textColor="@color/text_black"
+            android:layout_below="@id/my_info_fragment_user_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/my_info_fragment_user_name"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/girl"
+            android:layout_toRightOf="@id/my_info_fragment_user_name"
+            android:layout_alignBottom="@id/my_info_fragment_user_name"
+            android:layout_marginStart="5dp"
+            android:id="@+id/my_info_fragment_user_sex"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="西安邮电大学\t软件工程学院"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/my_info_fragment_user_name"
+            android:layout_marginTop="10dp"
+            android:id="@+id/my_info_fragment_user_school"
+            />
+
+    </RelativeLayout>-->
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_fragment_user_layout"
+        android:layout_marginTop="30dp"
+        android:id="@+id/my_info_fragment_run_layout"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/my_info_fragment_user_layout"
+            android:background="#fff"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="跑步记录"
+                android:layout_centerInParent="true"
+                android:textSize="15sp"
+                android:id="@+id/my_info_fragment_run_image"
+                android:textColor="@color/text_black"
+                />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/run_blue"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toLeftOf="@id/my_info_fragment_run_image"
+                android:layout_marginEnd="20dp"
+                />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_fragment_user_layout"
+        android:layout_marginTop="30dp"
+        android:background="#fff"
+        android:id="@+id/my_info_fragment_run_layout"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="跑步记录"
+            android:layout_centerInParent="true"
+            android:textSize="15sp"
+            android:id="@+id/my_info_fragment_run_image"
+            android:textColor="@color/text_black"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/run_blue"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_toLeftOf="@id/my_info_fragment_run_image"
+            android:layout_marginEnd="20dp"
+            />
+
+    </RelativeLayout>-->
+
+    <!--<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/my_info_fragment_scores_layout"
+        android:background="#fff"
+        android:layout_below="@id/my_info_fragment_run_layout"
+        android:layout_marginTop="5dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="成绩单"
+            android:textColor="@color/text_black"
+            android:textSize="15sp"
+            android:layout_centerInParent="true"
+            />
+
+
+    </RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/my_info_fragment_qr_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/qr_code"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="20dp"
+        />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/my_info_fragment_run_layout"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:background="#fff"
+        android:id="@+id/my_scores_list"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="成绩单"
+            android:textColor="@color/text_black"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            />
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

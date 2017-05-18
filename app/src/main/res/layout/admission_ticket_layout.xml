@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:layout_margin="35dp"
+    >
+    <!--android:layout_width="260dp"
+    android:layout_height="350dp"-->
+    
+    <LinearLayout
+        android:id="@+id/admission_layout_photo_layout"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:background="@color/my_info_background"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        >
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/take_photo"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点击拍照"
+            android:layout_gravity="center_horizontal"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/admission_layout_photo_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/admission_layout_photo_layout"
+        android:text="照片要求：清晰、素颜、平视"
+        android:textSize="12sp"
+        android:layout_alignStart="@id/admission_layout_photo_layout"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="欧阳溜溜"
+        android:layout_below="@id/admission_layout_photo_request"
+        android:layout_alignStart="@id/admission_layout_photo_layout"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/text_black"
+        android:id="@+id/admission_layout_name"
+        android:textSize="18sp"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/girl"
+        android:layout_alignBottom="@id/admission_layout_name"
+        android:layout_toRightOf="@id/admission_layout_name"
+        android:layout_marginStart="5dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/admission_layout_name"
+        android:layout_alignStart="@id/admission_layout_name"
+        android:text="班级：软件1301\n学号：10131023\n学院：计算机学院"
+        android:textColor="@color/text_black"
+        android:layout_marginTop="10dp"
+        android:textSize="15sp"
+        android:id="@+id/admission_layout_data"
+        />
+
+</RelativeLayout>
