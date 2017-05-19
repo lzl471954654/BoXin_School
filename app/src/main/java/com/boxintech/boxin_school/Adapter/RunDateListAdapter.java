@@ -2,6 +2,7 @@ package com.boxintech.boxin_school.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,7 @@ public class RunDateListAdapter extends RecyclerView.Adapter<RunDateListAdapter.
 
     static class DataViewHolder extends RecyclerView.ViewHolder
     {
+        View root;
         TextView status;
         TextView title;
         TextView target;
@@ -34,6 +36,7 @@ public class RunDateListAdapter extends RecyclerView.Adapter<RunDateListAdapter.
         public DataViewHolder(View view)
         {
             super(view);
+            root = view;
             status = (TextView)view.findViewById(R.id.date_run_status);
             title = (TextView)view.findViewById(R.id.date_run_item_title);
             place = (TextView)view.findViewById(R.id.date_run_item_place);
@@ -49,7 +52,17 @@ public class RunDateListAdapter extends RecyclerView.Adapter<RunDateListAdapter.
         this.now_context = context;
     }
     @Override
-    public void onBindViewHolder(RunDateListAdapter.DataViewHolder holder, int position) {
+    public void onBindViewHolder(RunDateListAdapter.DataViewHolder holder, final int position) {
+        holder.root.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(now_context, RunDateInformation_Activity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("room_data",runDataList.get(position));
+                intent.putExtras(bundle);
+                now_context.startActivity(intent);
+            }
+        });
         if(!mydate)
         {
             holder.status.setVisibility(View.INVISIBLE);
@@ -62,13 +75,6 @@ public class RunDateListAdapter extends RecyclerView.Adapter<RunDateListAdapter.
     @Override
     public RunDateListAdapter.DataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.date_run_item_layout,parent,false);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(now_context, RunDateInformation_Activity.class);
-                now_context.startActivity(intent);
-            }
-        });
         DataViewHolder viewHolder = new DataViewHolder(view);
         return viewHolder;
     }

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -27,6 +28,8 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by LZL on 2017/5/8.
  */
@@ -44,7 +47,7 @@ public class newMe_fragment extends Fragment implements View.OnClickListener{
     TextView xy;
     TextView school;
     TextView setting_text;
-
+    ImageView photo = null;
     Student student;
     @Nullable
     @Override
@@ -104,10 +107,20 @@ public class newMe_fragment extends Fragment implements View.OnClickListener{
 
                 TextView name = (TextView) dialog.findViewById(R.id.admission_layout_name);
                 TextView data = (TextView) dialog.findViewById(R.id.admission_layout_data);
+                ImageView take_photo = (ImageView)dialog.findViewById(R.id.admission_take_photo);
+                photo = (ImageView)dialog.findViewById(R.id.admission_layout_photo_images);
                 name.setText(AppLogonData.getStudent().getName());
                 String data_string = "班级："+AppLogonData.getStudent().getClasses()+"\n学号："+AppLogonData.getStudent().getXh()+"\n学院："+AppLogonData.getStudent().getXy();
                 data.setText(data_string);
 
+                take_photo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                        startActivityForResult(intent,1);  //1代表 缩略图 返回 压缩过后的图片
+                    }
+
+                });
                 dialog.show();
                 break;
             }
@@ -129,6 +142,21 @@ public class newMe_fragment extends Fragment implements View.OnClickListener{
                 dialog.create();
                 dialog.show();
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==RESULT_OK)
+        {
+            if(requestCode==1)
+            {
+                Bundle bundle  = data.getExtras();
+                Bitmap pic = (Bitmap)bundle.get("data");
+                photo.setImageBitmap(pic);
+                photo.setVisibility(View.VISIBLE);
+            }
         }
     }
 }

@@ -19,11 +19,18 @@
         android:layout_marginTop="30dp"
         >
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/admission_layout_photo_images"
+            android:visibility="gone"
+            />
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@mipmap/take_photo"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
+            android:id="@+id/admission_take_photo"
             />
         <TextView
             android:layout_width="wrap_content"
