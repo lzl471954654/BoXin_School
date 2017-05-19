@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#fff"
+    >
+
+    <ImageView
+        android:id="@+id/message_item_icon"
+        style="@style/user_image_circle_radius"
+        android:layout_centerVertical="true"
+        />
+    <TextView
+        android:id="@+id/message_item_name"
+        android:layout_toRightOf="@id/message_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alice"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/message_item_data"
+        android:layout_alignStart="@id/message_item_name"
+        android:layout_below="@id/message_item_name"
+        android:text="来来来来来，跑跑跑，步步"
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17:00"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        />
+
+
+</RelativeLayout>

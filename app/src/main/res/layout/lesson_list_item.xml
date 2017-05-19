@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/lesson_item_background"
+    >
+    <TextView
+        android:layout_width="160dp"
+        android:layout_height="65dp"
+        android:id="@+id/lesson_name"
+        android:text="透过电影看文化"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textSize="22sp"
+        android:textColor="@color/text_black"
+        android:layout_marginStart="15dp"
+        android:maxLines="2"
+        />
+    <TextView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/lesson_teacher"
+        android:text="张德慧"
+        android:textColor="@color/text_black"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/lesson_name"
+        android:textSize="18sp"
+        android:layout_alignBottom="@id/lesson_name"
+        android:layout_alignTop="@id/lesson_name"
+        android:gravity="center"
+        android:layout_marginStart="0dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lesson_place"
+        android:text="FZ102"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/text_black"
+        android:textSize="30sp"
+        android:layout_marginEnd="20dp"
+        />
+</RelativeLayout>

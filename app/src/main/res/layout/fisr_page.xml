@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/my_info_background"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="#fff"
+        android:id="@+id/first_page_image"
+        android:src="@mipmap/run_people"
+        />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="LOGO"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/first_page_image"
+        android:layout_marginTop="25dp"
+        android:textColor="#fff"
+        android:background="@drawable/ripple_style"
+        android:id="@+id/first_page_logon_button"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Creatshare - 博信校园"
+        android:layout_below="@id/first_page_logon_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="12sp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.boxintech.boxin_school.Activity.MainActivity"
+    android:background="@color/my_info_background"
+    >
+
+    <RelativeLayout
+        android:id="@+id/my_info_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/title"
+        >
+        <ImageView
+            android:id="@+id/my_info_title_back_button"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/back"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="个人信息"
+            android:textColor="#fff"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/my_info_person_info"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#fff"
+        android:layout_below="@id/my_info_title_layout"
+        >
+        <ImageView
+            android:id="@+id/my_info_person_image"
+            android:layout_centerVertical="true"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="20dp"
+            android:background="#bfbfbf"
+            />
+        <TextView
+            android:id="@+id/my_info_person_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欧阳溜溜"
+            android:layout_toRightOf="@id/my_info_person_image"
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/my_info_person_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学号：10131029"
+            android:layout_alignStart="@id/my_info_person_name"
+            android:layout_below="@id/my_info_person_name"
+            android:layout_marginTop="5dp"
+            />
+        <ImageView
+            android:id="@+id/my_info_person_sex"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/girl"
+            android:layout_toRightOf="@id/my_info_person_name"
+            android:layout_above="@id/my_info_person_id"
+            android:layout_marginBottom="5dp"
+            android:layout_marginStart="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/my_info_person_qr_code"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/qr_code"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="15dp"
+            />
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/my_info_class_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_person_info"
+        android:background="#fff"
+        android:layout_marginTop="40dp"
+        >
+        
+        <ImageView
+            android:id="@+id/my_info_class_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/class1"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="班级"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/my_info_class_image"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/my_info_class_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="软件1302"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_class_layout"
+        android:background="#fff"
+        android:layout_marginTop="5dp"
+        android:id="@+id/my_info_college_layout"
+        >
+
+        <ImageView
+            android:id="@+id/my_info_college_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/college"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学院"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/my_info_college_image"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/my_info_college_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="软件工程学院"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_college_layout"
+        android:background="#fff"
+        android:layout_marginTop="5dp"
+        android:id="@+id/my_info_school_layout"
+        >
+
+        <ImageView
+            android:id="@+id/my_info_school_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/school"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="学校"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/my_info_school_image"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/text_black"
+            />
+        <TextView
+            android:id="@+id/my_info_school_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="西安邮电大学"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_school_layout"
+        android:background="#fff"
+        android:layout_marginTop="30dp"
+        android:id="@+id/my_info_admission_ticket_layout"
+        >
+
+        <ImageView
+            android:id="@+id/my_info_admission_ticket_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/admission_ticket"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="准考证"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/my_info_admission_ticket_image"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/text_black"
+            />
+        <ImageView
+            android:id="@+id/my_info_admission_ticket_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/next"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/my_info_admission_ticket_layout"
+        android:background="#fff"
+        android:layout_marginTop="30dp"
+        android:id="@+id/my_info_setting_layout"
+        >
+
+        <ImageView
+            android:id="@+id/my_info_setting_image"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/setting"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/my_info_setting_image"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/text_black"
+            android:id="@+id/my_info_setting_layout_text"
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

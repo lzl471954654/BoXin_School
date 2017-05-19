@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="#fff"
+    >
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:background="@drawable/date_run_image_background"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="15dp"
+        android:id="@+id/date_run_item_image"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="来约跑啊啊啊"
+        android:textColor="@color/text_black"
+        android:layout_toRightOf="@id/date_run_item_image"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="16sp"
+        android:id="@+id/date_run_item_title"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/date_run_item_time"
+        android:text="明天 17:00"
+        android:textColor="#757575"
+        android:layout_alignStart="@id/date_run_item_title"
+        android:layout_below="@id/date_run_item_title"
+        android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="地点 东区操场"
+        android:id="@+id/date_run_item_place"
+        android:layout_below="@id/date_run_item_time"
+        android:layout_alignStart="@id/date_run_item_time"
+        android:layout_marginTop="10dp"
+        android:textColor="#757575"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="目标 03km"
+        android:layout_alignParentEnd="true"
+        android:layout_alignBottom="@id/date_run_item_time"
+        android:textColor="#757575"
+        android:layout_marginEnd="80dp"
+        android:id="@+id/date_run_target"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="人数 00人"
+        android:textColor="#757575"
+        android:layout_alignStart="@id/date_run_target"
+        android:layout_below="@id/date_run_target"
+        android:layout_marginTop="10dp"
+        android:id="@+id/date_run_people_count"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="未开始"
+        android:textColor="#ffc400"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:id="@+id/date_run_status"
+        />
+
+</RelativeLayout>

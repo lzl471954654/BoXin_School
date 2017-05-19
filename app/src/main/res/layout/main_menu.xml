@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/my_info_background">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/title"
+        android:id="@+id/main_menu_title_bar"
+        >
+        <TextView
+            android:id="@+id/main_menu_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="课程表"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            />
+    </android.support.v7.widget.Toolbar>
+
+
+    <com.ashokvarma.bottomnavigation.BottomNavigationBar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/main_menu_bottom_navigation_bar"
+        android:layout_alignParentBottom="true"
+        app:bnbActiveColor="@color/title"
+        >
+
+    </com.ashokvarma.bottomnavigation.BottomNavigationBar>
+
+    <FrameLayout
+        android:id="@+id/main_menu_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_menu_title_bar"
+        android:layout_alignParentStart="true">
+
+    </FrameLayout>
+
+
+</RelativeLayout>
