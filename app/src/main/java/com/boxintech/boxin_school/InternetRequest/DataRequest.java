@@ -22,6 +22,21 @@ public class DataRequest {
     private static final String allRoomUrl = url+"/bxyp/getallroom.php";
     private static final String room_info_url = url+"/bxyp/getoneroom.php";
     private static final String join_room_url = url+"/bxyp/join_run.php";
+    private static final String get_One_Person_Room_Url = "http://summercode.cn/bxyp/get_per_room.php";
+
+
+    public void getOnePersonRoom(String user_id,Callback callback)
+    {
+        Request.Builder builder = new Request.Builder();
+        FormBody.Builder builder1 = new FormBody.Builder();
+        builder1.add("user_id",user_id);
+        FormBody formBody = builder1.build();
+        builder.post(formBody)
+                .url(get_One_Person_Room_Url);
+        Request request = builder.build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(callback);
+    }
 
     public void joinRoom(String user_id,String room_id,Callback callback)
     {

@@ -15,6 +15,30 @@ import java.util.List;
  */
 
 public class ParseDataFromJSON {
+    public static List<RunRoomData> getPersonRoomList(String s)
+    {
+        List<RunRoomData> list = new LinkedList<>();
+        JSONArray jsonArray = null;
+        try
+        {
+            jsonArray = new JSONArray(s);
+            for(int i = 0;i<jsonArray.length();i++)
+            {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                RunRoomData runRoomData = new RunRoomData();
+                runRoomData.setUser_id(jsonObject.getString("user_id"));
+                runRoomData.setUser_id(jsonObject.getString("id"));
+                runRoomData.setRun_place(jsonObject.getString("run_place"));
+                runRoomData.setTitle(jsonObject.getString("title"));
+                runRoomData.setYp_date(jsonObject.getString("yp_data"));
+                list.add(runRoomData);
+            }
+        }catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+        return list;
+    }
     public static List<RunRoomData> getRoomList(String s)
     {
         List<RunRoomData> list = new LinkedList<>();

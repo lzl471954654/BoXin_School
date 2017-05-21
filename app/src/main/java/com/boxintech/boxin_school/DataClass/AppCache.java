@@ -20,7 +20,7 @@ public class AppCache {
 
     private static List<Map<String,String>> scores_list;
     private static List<RunHistoryDataItem> person_run_data_list;
-
+    private static List<RunRoomData> personRoomList;
     private static String XQ = "";
     private static String XN = "";
 
@@ -28,6 +28,14 @@ public class AppCache {
     private static int person_run_all_km = 0;
     private static int person_run_all_people_count = 0;
     private static int person_run_sum_hours = 0;
+
+    public static List<RunRoomData> getPersonRoomList() {
+        return personRoomList;
+    }
+
+    public static void setPersonRoomList(List<RunRoomData> personRoomList) {
+        AppCache.personRoomList = personRoomList;
+    }
 
     public static int getPerson_run_all_km() {
         return person_run_all_km;

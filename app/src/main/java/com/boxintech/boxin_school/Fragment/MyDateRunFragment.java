@@ -43,7 +43,10 @@ public class MyDateRunFragment extends Fragment {
     TextView sum_km;
     final int REFRESH_INFO = 1;
     final int REFRESH_ROOM = 2;
+    final int REFRESH_PERSON_LIST = 3;
+    final int GET_PERSON_LIST = 4;
     List<RunRoomData> runRoomDataList = null;
+    List<RunRoomData> personRoomList = null;
     Handler handler = new Handler()
     {
         @Override
@@ -58,6 +61,11 @@ public class MyDateRunFragment extends Fragment {
                 case REFRESH_ROOM:
                 {
                     refreshAllRoom();
+                    break;
+                }
+                case REFRESH_PERSON_LIST:
+                {
+                    refreshPersonList();
                     break;
                 }
             }
@@ -152,6 +160,33 @@ public class MyDateRunFragment extends Fragment {
                 }
             }
         });
+        dataRequest.getOnePersonRoom(AppLogonData.getStudent().getXh(), new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String s = response.body().string();
+                System.out.println(s);
+                List<RunRoomData> list = ParseDataFromJSON.getPersonRoomList(s);
+                if(list!=null&list.size()>0)
+                {
+                    AppCache.setPersonRoomList(list);
+                    Message message = new Message();
+                    message.what = REFRESH_PERSON_LIST;
+                    handler.sendMessage(message);
+                }
+            }
+        });
+    }
+
+    public void refreshPersonList()
+    {
+        RunDateListAdapter adapter = new RunDateListAdapter(personRoomList,false,getContext());
+        date_list.setAdapter(adapter);
     }
 
     public void refreshAllRoom()
