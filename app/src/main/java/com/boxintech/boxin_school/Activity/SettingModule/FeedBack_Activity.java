@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.boxintech.boxin_school.DataClass.AppLogonData;
+import com.boxintech.boxin_school.InternetRequest.DataRequest;
 import com.boxintech.boxin_school.OtherClass.ExitSystem;
 import com.boxintech.boxin_school.R;
 
@@ -83,26 +85,8 @@ public class FeedBack_Activity extends AppCompatActivity{
                 final ProgressDialog progressDialog = new ProgressDialog(FeedBack_Activity.this);
                 progressDialog.setMessage("正在提交，请稍后");
                 progressDialog.show();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try
-                        {
-                            Thread.sleep(1000);
-                        }
-                        catch (InterruptedException e)
-                        {
-                            e.printStackTrace();
-                        }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                progressDialog.dismiss();
-                                Snackbar.make(send_button,"提交成功！",Snackbar.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                }).start();
+                DataRequest dataRequest = new DataRequest();
+                dataRequest.sendSuggest(AppLogonData.getStudent().getXh());
             }
         });
     }

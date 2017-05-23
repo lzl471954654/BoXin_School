@@ -60,16 +60,15 @@ public class RunDateListAdapter extends RecyclerView.Adapter<RunDateListAdapter.
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("room_data",runDataList.get(position));
                 intent.putExtras(bundle);
+                intent.putExtra("mydate",mydate);
                 now_context.startActivity(intent);
             }
         });
-        if(!mydate)
-        {
             holder.status.setVisibility(View.INVISIBLE);
             holder.title.setText(runDataList.get(position).getTitle());
             holder.place.setText("地点 "+runDataList.get(position).getRun_place());
             holder.date.setText("时间 "+runDataList.get(position).getYp_date());
-        }
+
     }
 
     @Override

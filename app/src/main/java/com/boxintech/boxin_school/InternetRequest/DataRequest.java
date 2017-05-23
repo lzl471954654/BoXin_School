@@ -23,7 +23,36 @@ public class DataRequest {
     private static final String room_info_url = url+"/bxyp/getoneroom.php";
     private static final String join_room_url = url+"/bxyp/join_run.php";
     private static final String get_One_Person_Room_Url = "http://summercode.cn/bxyp/get_per_room.php";
+    private static final String suggest_url = "http://summercode.cn/bxyp/sugges.php";
+    private static final String join_us_url = "http://summercode.cn/bxyp/join_us.php";
 
+    public void joinUs(String user_id,String job,String phone_num,String introduce,Callback callback)
+    {
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("user_id",user_id)
+                .add("job",job)
+                .add("phone_num",phone_num)
+                .add("introduce",introduce);
+        FormBody formBody = builder.build();
+        Request.Builder builder1 = new Request.Builder();
+        builder1.url(join_us_url)
+                .post(formBody);
+        Call call = okHttpClient.newCall(builder1.build());
+        call.enqueue(callback);
+    }
+
+    public void sendSuggest(String user_id,String suggest,Callback callback)
+    {
+        FormBody.Builder builder = new FormBody.Builder();
+        builder.add("user_id",user_id)
+                .add("sug",suggest);
+        FormBody formBody = builder.build();
+        Request.Builder builder1 = new Request.Builder();
+        builder1.url(suggest_url)
+                .post(formBody);
+        Call call = okHttpClient.newCall(builder1.build());
+        call.enqueue(callback);
+    }
 
     public void getOnePersonRoom(String user_id,Callback callback)
     {

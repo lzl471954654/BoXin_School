@@ -1,7 +1,4 @@
 package com.boxintech.boxin_school.DataClass;
-
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 /**

@@ -73,6 +73,8 @@ public class MyDateRunFragment extends Fragment {
     };
 
     DataRequest dataRequest = new DataRequest();
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -170,8 +172,10 @@ public class MyDateRunFragment extends Fragment {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String s = response.body().string();
+                System.out.println("person date run list");
                 System.out.println(s);
                 List<RunRoomData> list = ParseDataFromJSON.getPersonRoomList(s);
+                personRoomList = list;
                 if(list!=null&list.size()>0)
                 {
                     AppCache.setPersonRoomList(list);
@@ -185,7 +189,7 @@ public class MyDateRunFragment extends Fragment {
 
     public void refreshPersonList()
     {
-        RunDateListAdapter adapter = new RunDateListAdapter(personRoomList,false,getContext());
+        RunDateListAdapter adapter = new RunDateListAdapter(personRoomList,true,getContext());
         date_list.setAdapter(adapter);
     }
 

@@ -73,6 +73,11 @@ public class RunDateInformation_Activity extends AppCompatActivity implements Vi
         back.setOnClickListener(this);
         date_button.setOnClickListener(this);
         start_run.setOnClickListener(this);
+
+        if(getIntent().getBooleanExtra("mydate",false))
+        {
+            date_button.setVisibility(View.GONE);
+        }
     }
 
     @Override

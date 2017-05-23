@@ -1,15 +1,35 @@
 package com.boxintech.boxin_school.Activity.SettingModule;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.boxintech.boxin_school.DataClass.AppLogonData;
+import com.boxintech.boxin_school.InternetRequest.DataRequest;
 import com.boxintech.boxin_school.OtherClass.ExitSystem;
 import com.boxintech.boxin_school.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.EOFException;
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * Created by LZL on 2017/3/25.
@@ -23,6 +43,45 @@ public class JoinUs_Activity extends AppCompatActivity implements View.OnClickLi
     RadioButton front_design;
     RadioButton view_design;
     RadioGroup radioGroup;
+
+    EditText joinUsPhone;
+    EditText introduceMmyslef;
+    Button commitButton;
+
+    final int COMMIT_SUCCESS = 1;
+    final int COMMIT_FAILED = 0;
+    AlertDialog.Builder builder;
+    AlertDialog alertDialog;
+    ProgressDialog progressDialog;
+    DataRequest dataRequest = new DataRequest();
+    private Handler mhandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case COMMIT_SUCCESS: {
+                    progressDialog.dismiss();
+                    builder = new AlertDialog.Builder(JoinUs_Activity.this);
+                    builder.setMessage("提交成功！");
+                    builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+                    builder.show();
+                    break;
+                }
+                case COMMIT_FAILED: {
+                    progressDialog.dismiss();
+                    builder = new AlertDialog.Builder(JoinUs_Activity.this);
+                    builder.setMessage("提交失败！");
+                    builder.setPositiveButton("确定", null);
+                    builder.show();
+                    break;
+                }
+            }
+        }
+    };
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +97,10 @@ public class JoinUs_Activity extends AppCompatActivity implements View.OnClickLi
     }
     public void bindingView()
     {
+        joinUsPhone = (EditText)findViewById(R.id.join_us_phone);
+        introduceMmyslef = (EditText)findViewById(R.id.join_us_introduce_myself);
+        commitButton = (Button)findViewById(R.id.join_us_commit_button);
+
         radioGroup = (RadioGroup)findViewById(R.id.join_us_radio_group);
         radioGroup.clearCheck();
         back_button = (ImageView)findViewById(R.id.join_us_back_button);
@@ -55,11 +118,58 @@ public class JoinUs_Activity extends AppCompatActivity implements View.OnClickLi
         view_design.setOnClickListener(this);
         background_development.setOnClickListener(this);
         back_button.setOnClickListener(this);
+        commitButton.setOnClickListener(this);
     }
     public void onClick(View v)
     {
         switch (v.getId())
         {
+            case R.id.join_us_commit_button:
+            {
+                String phone = joinUsPhone.getText().toString();
+                String intrduce = introduceMmyslef.getText().toString();
+                progressDialog = new ProgressDialog(this);
+                progressDialog.setMessage("请稍后，正在提交");
+                progressDialog.setCancelable(false);
+                progressDialog.show();
+
+                dataRequest.joinUs(AppLogonData.getStudent().getXh(), "产品运营", phone, intrduce, new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        e.printStackTrace();
+                        Message message = new Message();
+                        message.what = COMMIT_FAILED;
+                        mhandler.sendMessage(message);
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        String s = response.body().string();
+                        try
+                        {
+                            System.out.println(s);
+                            JSONObject jsonObject = new JSONObject(s);
+                            String result = jsonObject.getString("res");
+                            if(result.equals("1"))
+                            {
+                                Message message = new Message();
+                                message.what = COMMIT_SUCCESS;
+                                mhandler.sendMessage(message);
+                            }
+                            else
+                            {
+                                Message message = new Message();
+                                message.what = COMMIT_FAILED;
+                                mhandler.sendMessage(message);
+                            }
+                        }catch (JSONException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                break;
+            }
             case R.id.join_us_back_button:
             {
                 finish();
@@ -117,5 +227,11 @@ public class JoinUs_Activity extends AppCompatActivity implements View.OnClickLi
                 break;
             }
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mhandler.removeCallbacksAndMessages(null);
     }
 }

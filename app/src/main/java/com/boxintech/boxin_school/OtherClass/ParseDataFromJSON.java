@@ -30,7 +30,7 @@ public class ParseDataFromJSON {
                 runRoomData.setUser_id(jsonObject.getString("id"));
                 runRoomData.setRun_place(jsonObject.getString("run_place"));
                 runRoomData.setTitle(jsonObject.getString("title"));
-                runRoomData.setYp_date(jsonObject.getString("yp_data"));
+                runRoomData.setYp_date(jsonObject.getString("yp_date"));
                 list.add(runRoomData);
             }
         }catch (JSONException e)
