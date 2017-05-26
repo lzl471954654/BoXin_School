@@ -1,9 +1,11 @@
 package com.boxintech.boxin_school.Activity.SettingModule;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +19,15 @@ import com.boxintech.boxin_school.InternetRequest.DataRequest;
 import com.boxintech.boxin_school.OtherClass.ExitSystem;
 import com.boxintech.boxin_school.R;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
+
 /**
  * Created by LZL on 2017/3/24.
  */
@@ -26,6 +37,7 @@ public class FeedBack_Activity extends AppCompatActivity{
     Button send_button;
     ImageView back_button;
 
+    DataRequest dataRequest = new DataRequest();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,8 +97,49 @@ public class FeedBack_Activity extends AppCompatActivity{
                 final ProgressDialog progressDialog = new ProgressDialog(FeedBack_Activity.this);
                 progressDialog.setMessage("正在提交，请稍后");
                 progressDialog.show();
-                DataRequest dataRequest = new DataRequest();
-                dataRequest.sendSuggest(AppLogonData.getStudent().getXh());
+                dataRequest.sendSuggest(AppLogonData.getStudent().getXh(), feedback_data.getText().toString(), new Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        progressDialog.dismiss();
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        String s = response.body().string();
+                        progressDialog.dismiss();
+                        try
+                        {
+                            JSONObject jsonObject = new JSONObject(s);
+                            final int result = jsonObject.getInt("res");
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(FeedBack_Activity.this);
+                                    if(result==1)
+                                    {
+                                        builder.setMessage("提交成功！");
+                                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                finish();
+                                            }
+                                        });
+                                        builder.create().show();
+                                    }
+                                    else
+                                    {
+                                        builder.setMessage("对不起网路异常，提交失败，请重试。");
+                                        builder.setPositiveButton("确定",null);
+                                        builder.create().show();
+                                    }
+                                }
+                            });
+                        }catch (JSONException e)
+                        {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
         });
     }

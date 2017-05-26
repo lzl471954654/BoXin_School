@@ -22,6 +22,7 @@ import com.boxintech.boxin_school.OtherClass.ParseDataFromJSON;
 import com.boxintech.boxin_school.R;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -205,6 +206,8 @@ public class MyDateRunFragment extends Fragment {
         String hours = ""+AppCache.getPerson_run_sum_hours();
         String km = ""+AppCache.getPerson_run_all_km();
         String times = ""+AppCache.getPerson_run_times();
+
+        Double kmDouble = new Double(km);
         sum_people.setText(poeple);
         sum_km.setText(km);
         sum_hours.setText(hours);

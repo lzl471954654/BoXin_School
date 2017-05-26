@@ -5,6 +5,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.boxintech.boxin_school.Adapter.RunHistoryListAdapter;
 import com.boxintech.boxin_school.DataClass.AppCache;
@@ -29,6 +31,7 @@ import okhttp3.Response;
 
 public class RunHistory_Activity extends AppCompatActivity implements Runnable{
     RecyclerView history_list;
+    ImageView backButton;
     DataRequest dataRequestor = new DataRequest();
     List<RunHistoryDataItem> runHistoryDataItemList;
     @Override
@@ -42,6 +45,8 @@ public class RunHistory_Activity extends AppCompatActivity implements Runnable{
 
     public void init()
     {
+        backButton = (ImageView)findViewById(R.id.run_history_layout_back_button);
+
         history_list = (RecyclerView)findViewById(R.id.run_history_layout_list);
         SpaceItemDecoration spaceItemDecoration = new SpaceItemDecoration(10);
         history_list.addItemDecoration(spaceItemDecoration);
@@ -49,6 +54,13 @@ public class RunHistory_Activity extends AppCompatActivity implements Runnable{
 
         final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(RunHistory_Activity.this);
         history_list.setLayoutManager(linearLayoutManager);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
 
         if(AppCache.getPerson_run_data_list()!=null)    //检查数据是否存在
         {
