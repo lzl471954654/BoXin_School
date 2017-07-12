@@ -95,7 +95,6 @@ public class newMe_fragment extends Fragment implements View.OnClickListener{
             case R.id.my_info_setting_layout:
             {
                 Intent intent = new Intent(getContext(),Setting_Activity.class);
-                //startActivity(intent);
                 startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity(),setting_text,"setting_title").toBundle());
                 break;
             }

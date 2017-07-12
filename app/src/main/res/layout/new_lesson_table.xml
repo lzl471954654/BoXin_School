@@ -6,25 +6,23 @@
     android:layout_height="match_parent"
     android:background="#fff"
     >
+
     <android.support.design.widget.TabLayout
         android:id="@+id/lesson_table_tab_new"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/title"
-        app:tabSelectedTextColor="#fff"
-        >
+        app:tabSelectedTextColor="#fff">
 
     </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/lesson_viewpager"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     </android.support.v4.view.ViewPager>
-
 
 
 </LinearLayout>

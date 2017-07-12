@@ -165,7 +165,7 @@ public class MainMenu_Activity extends AppCompatActivity implements View.OnClick
         navigationBar.addItem(new BottomNavigationItem(R.mipmap.lesson_sheet,"课程表"))
                      .addItem(new BottomNavigationItem(R.mipmap.run,"跑步"))
                     .addItem(new BottomNavigationItem(R.mipmap.run_start,"开始跑步"))
-                     .addItem(new BottomNavigationItem(R.mipmap.books,"选课"))
+                     //.addItem(new BottomNavigationItem(R.mipmap.books,"选课"))
                     .addItem(new BottomNavigationItem(R.mipmap.me,"我"))
                     .setFirstSelectedPosition(0)
                     .setMode(BottomNavigationBar.MODE_FIXED);
@@ -256,13 +256,13 @@ public class MainMenu_Activity extends AppCompatActivity implements View.OnClick
                 Intent intent = new Intent(MainMenu_Activity.this,StartRun_Activity.class);
                 startActivity(intent);
                 break;
-            case 3:
+            /*case 3:
                 replaceFragment(new ChooseLessonFragment());
                 title.setText("选课");
                 menu.clear();
                 toolbar.inflateMenu(R.menu.main_menu_temp_item);
-                break;
-            case 4:
+                break;*/
+            case 3:
                 replaceFragment(new newMe_fragment());
                 title.setText("我");
                 menu.clear();

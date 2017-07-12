@@ -1,5 +1,7 @@
 package com.boxintech.boxin_school.Fragment;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -8,11 +10,13 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.boxintech.boxin_school.Activity.Logon_Activity;
 import com.boxintech.boxin_school.Adapter.LessonFragmentPagerAdapter;
 import com.boxintech.boxin_school.DataClass.AppCache;
 import com.boxintech.boxin_school.DataClass.AppLogonData;
@@ -84,12 +88,6 @@ public class newLessonTableFragment extends Fragment implements TabLayout.OnTabS
         System.out.println("viewpager init!!");
         viewPager =(ViewPager) root.findViewById(R.id.lesson_viewpager);
         tabLayout = (TabLayout)root.findViewById(R.id.lesson_table_tab_new);
-
-       /* tabLayout.addTab(tabLayout.newTab().setText("星期一"));
-        tabLayout.addTab(tabLayout.newTab().setText("星期二"));
-        tabLayout.addTab(tabLayout.newTab().setText("星期三"));
-        tabLayout.addTab(tabLayout.newTab().setText("星期四"));
-        tabLayout.addTab(tabLayout.newTab().setText("星期五"));*/
 
         fragmentList = new LinkedList<>();
         for(int i = 0;i<5;i++)
@@ -166,6 +164,11 @@ public class newLessonTableFragment extends Fragment implements TabLayout.OnTabS
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String s = response.body().string();
+                if(ParseDataFromHtml.getVIEWSTATE(s)==null)
+                {
+                    handler.post(noTeacherSuggestion);
+                    return;
+                }
                 List<List<Map<String,String>>> Lesson_collection = ParseDataFromHtml.getLessonsTable(s);
                 AppCache.setLesson_collection(Lesson_collection);
                 Message message = new Message();
@@ -209,4 +212,22 @@ public class newLessonTableFragment extends Fragment implements TabLayout.OnTabS
     public void onTabUnselected(TabLayout.Tab tab) {
 
     }
+
+    Runnable noTeacherSuggestion = new Runnable() {
+        @Override
+        public void run() {
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setMessage("对不起，您未评价教师，暂时无法进入系统。");
+            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(getContext(), Logon_Activity.class);
+                    //startActivity(intent);
+                    //getActivity().finish();
+                }
+            });
+            builder.setCancelable(false);
+            builder.create().show();
+        }
+    };
 }

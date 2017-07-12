@@ -28,7 +28,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Creatshare - 博信校园"
+        android:text="XiyouMobile - 玩西邮"
         android:layout_below="@id/first_page_logon_button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"

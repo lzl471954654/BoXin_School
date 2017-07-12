@@ -27,7 +27,7 @@ public class FirstPage extends AppCompatActivity {
         logon_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FirstPage.this,ChoiceSchool_Activity.class);
+                Intent intent = new Intent(FirstPage.this,Logon_Activity.class);
                 startActivity(intent);
                 finish();
             }
